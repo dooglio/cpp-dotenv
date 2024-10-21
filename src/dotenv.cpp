@@ -6,14 +6,11 @@
 #include <fstream>
 #include <utility>
 
-
-using namespace std;
-using namespace dotenv;
-
-
-dotenv::dotenv& dotenv::dotenv::load_dotenv(const string& dotenv_path, const bool overwrite, const bool interpolate)
+dotenv::dotenv &dotenv::dotenv::load_dotenv(const std::string &dotenv_path,
+                                            const bool overwrite,
+                                            const bool interpolate)
 {
-    ifstream env_file;
+    std::ifstream env_file;
     env_file.open(dotenv_path);
 
     if (env_file.good())
@@ -38,8 +35,7 @@ dotenv::dotenv& dotenv::dotenv::instance()
     return _instance;
 }
 
-
-const string dotenv::dotenv::env_filename = ".env";
+const std::string dotenv::dotenv::env_filename = ".env";
 dotenv::dotenv dotenv::dotenv::_instance;
 
 dotenv::dotenv& dotenv::env = dotenv::instance();
